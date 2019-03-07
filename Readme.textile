@@ -1,0 +1,34 @@
+h1. MOV machine
+
+p. A VM for a "TTA":https://en.wikipedia.org/wiki/Transport_triggered_architecture machine that I designed with a noddy (not-yet-optimising) assembler.
+
+h2. Requirements
+
+* flex
+* bison
+* gcc
+
+h2. Build
+
+bc.. $ cd mov
+$ make
+$ cd ../asm
+$ make
+
+h2. Run
+
+h3. Assemble
+
+bc. $ asm/asm < source.s > bytecode
+
+h3. Run
+
+bc. $ mov/mov bytecode
+
+h2. VM specifics
+
+p. The @mov@ VM has stdin and stdout connected to the IO port.
+
+h2. Examples
+
+There are example source files in the @examples/@ directory.

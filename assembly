@@ -1,0 +1,92 @@
+MOV DST, SRC
+   Insert [DST SRC] into the program
+
+JMP DST
+   Put DST into the Program Counter
+
+JNZ DST, SRC
+   Put DST into the Program Counter if SRC != 0
+   Overwrites A with SRC
+
+HLT
+   Stop execution
+   Overwites PC with 0xFF
+
+NOP
+   Do nothing
+   Insert [0 0] into the program
+
+IN DST
+   Read in one word from the IO Port and store it in DST
+
+OUT SRC
+   Write the word at SRC to the IO Port
+
+NOT DST, SRC
+   Store the bitwise inverse of the word at SRC at DST
+   Overwrites A with SRC
+
+OR DST, SRCa, SRCb
+   Store the bitwise or of the words at SRCa and SRCb at DST
+   Overwrites A with SRCa
+   Overwrites B with SRCb
+
+AND DST, SRCa, SRCb
+   Store the bitwise and of the words at SRCa and SRCb at DST
+   Overwrites A with SRCa
+   Overwrites B with SRCb
+
+XOR DST, SRCa, SRCb
+   Store the bitwise xor of the words at SRCa and SRCb at DST
+   Overwrites A with SRCa
+   Overwrites B with SRCb
+
+ADD DST, SRCa, SRCb
+   Store the sum of the words at SRCa and SRCb at DST
+   Overwrites A with SRCa
+   Overwrites B with SRCb
+
+SUB DST, SRCa, SRCb
+   Store the difference the words at SRCa and SRCb at DST
+   Overwrites A with SRCa
+   Overwrites B with SRCb
+
+SUB DST, SRCa, SRCb
+   Store the difference the words at SRCa and SRCb at DST
+   Overwrites A with SRCa
+   Overwrites B with SRCb
+
+SHL DST, SRCa, SRCb
+   Store the words at SRCa left shifted by the word at SRCb at DST
+   Overwrites A with SRCa
+   Overwrites B with SRCb
+
+SHR DST, SRCa, SRCb
+   Store the words at SRCa right shifted by the word at SRCb at DST
+   Overwrites A with SRCa
+   Overwrites B with SRCb
+
+
+
+
+DST can be:
+   A register (A, B, PC)
+   A number   (255, 0377, 0xFF, 0b11111111)
+
+SRC can be:
+   A register (A, B, C)
+   A number   (255, 0377, 0xFF, 0b11111111)
+   A result   (NOT, OR, AND, XOR, ADD, SUB, SHL, SHR)
+   A constant (ZERO = 0, ONES = 0xFF)
+
+
+
+You can tell the assembler to organise the program at a location with:
+   @0x50
+
+You can insert constants into the program with:
+   &0x48
+
+Instructions and directives can be seperated with:
+   A newline
+   A semicolon (;)
