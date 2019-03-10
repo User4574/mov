@@ -19,7 +19,9 @@ h2. Run
 
 h3. Assemble
 
-bc. $ asm/asm < source.s > bytecode
+bc. $ asm/asm source.s > bytecode
+
+If the input file is specified as @-@ then the assembler will read from @stdin@.
 
 h3. Run
 

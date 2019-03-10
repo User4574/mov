@@ -5,8 +5,9 @@
 
 #define WORD unsigned char
 
-int yylex();
-void yyerror(char *err);
+extern int yylex();
+extern void yyerror(char *err);
+extern FILE *yyin;
 
 WORD *program = NULL;
 size_t ploc = 0, psize = 0;
@@ -107,6 +108,10 @@ void dump() {
 }
 
 int main(int argc, char **argv) {
+  if (argc != 2)
+    return 1;
+  if(strncmp(argv[1], "-", 1))
+    yyin = fopen(argv[1], "r");
   yyparse();
   optimise();
   dump();
