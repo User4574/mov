@@ -1,0 +1,5 @@
+*.swp
+*.tab.*
+*.yy.*
+asm/asm
+mov/mov
